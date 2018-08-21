@@ -16,8 +16,12 @@ RUN \
   rm /tmp/hashicorp.trust
 
 # Install the helper tool
-COPY install_hashicorp_tool.sh /install_hashicorp_tool
-RUN chmod +x /install_hashicorp_tool
+COPY install-hashicorp-tool.sh /install-hashicorp-tool
+RUN chmod +x /install-hashicorp-tool
+
+# Where the software will be
+RUN mkdir -p /software
+VOLUME /software
 
 # Setup the entrypoint
-ENTRYPOINT ["/install_hashicorp_tool"]
+ENTRYPOINT ["/install-hashicorp-tool"]

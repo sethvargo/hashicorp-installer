@@ -16,13 +16,13 @@ Features:
 The general syntax is:
 
 ```text
-$ install_hashicorp_tool NAME VERSION [OS=linux [ARCH=amd64]]
+$ install-hashicorp-tool NAME VERSION [OS=linux [ARCH=amd64]]
 ```
 
 For example:
 
 ```text
-$ install_hashicorp_tool terraform 0.11.7
+$ install-hashicorp-tool terraform 0.11.7
 ```
 
 ### Standalone Installer
@@ -30,7 +30,7 @@ $ install_hashicorp_tool terraform 0.11.7
 The tool can be used as a standalone installer:
 
 ```text
-$ docker run -v $(pwd):/bin/ sethvargo/hashicorp-installer terraform 0.11.7
+$ docker run -v $(pwd):/software sethvargo/hashicorp-installer terraform 0.11.7
 ```
 
 ### Multi-Stage Builder
@@ -40,11 +40,11 @@ The tool can also be used as part of a multi-stage Docker build:
 ```docker
 # Download and verify the integrity of the download first
 FROM sethvargo/hashicorp-installer AS installer
-RUN /install_hashicorp_tool "terraform" "0.11.7"
+RUN /install-hashicorp-tool "terraform" "0.11.7"
 
 # Now copy the binary over into a smaller base image
 FROM alpine:latest
-COPY --from=installer /bin/terraform /terraform
+COPY --from=installer /software/terraform /terraform
 ENTRYPOINT ["/terraform"]
 ```
 

@@ -58,9 +58,10 @@ grep "${NAME}_${VERSION}_${OS}_${ARCH}" "${NAME}_${VERSION}_SHA256SUMS" > "SHA25
 sha256sum -c "SHA256SUMS"
 
 echo "--> Unpacking and installing"
+mkdir -p "/software"
 unzip "${NAME}_${VERSION}_${OS}_${ARCH}.zip"
-mv "${NAME}" "/bin/${NAME}"
-chmod +x "/bin/${NAME}"
+mv "${NAME}" "/software/${NAME}"
+chmod +x "/software/${NAME}"
 
 echo "--> Removing temporary files"
 rm "${NAME}_${VERSION}_${OS}_${ARCH}.zip"
