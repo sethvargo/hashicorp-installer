@@ -21,7 +21,6 @@ RUN chmod +x /install-hashicorp-tool
 
 # Where the software will be
 RUN mkdir -p /software
-VOLUME /software
 
 # Setup the entrypoint
 ENTRYPOINT ["/install-hashicorp-tool"]
