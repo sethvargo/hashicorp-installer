@@ -54,7 +54,7 @@ echo "--> Downloading ${NAME} v${VERSION} (${OS}/${ARCH})"
 curl -sfSO "${DOWNLOAD_ZIP}"
 
 echo "--> Validating SHA256SUM"
-grep "${NAME}_${VERSION}_${OS}_${ARCH}" "${NAME}_${VERSION}_SHA256SUMS" > "SHA256SUMS"
+grep "${NAME}_${VERSION}_${OS}_${ARCH}.zip" "${NAME}_${VERSION}_SHA256SUMS" > "SHA256SUMS"
 sha256sum -c "SHA256SUMS"
 
 echo "--> Unpacking and installing"
