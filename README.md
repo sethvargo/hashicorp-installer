@@ -37,7 +37,7 @@ $ docker run -v $(pwd):/software sethvargo/hashicorp-installer terraform 0.11.7
 
 The tool can also be used as part of a multi-stage Docker build:
 
-```docker
+```dockerfile
 # Download and verify the integrity of the download first
 FROM sethvargo/hashicorp-installer AS installer
 RUN /install-hashicorp-tool "terraform" "0.11.7"
